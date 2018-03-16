@@ -1,50 +1,35 @@
 Estudaluno
 ================
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
-This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
-provided by the [RailsApps Project](http://railsapps.github.io/).
-
-Rails Composer is supported by developers who purchase our RailsApps tutorials.
-
-Problems? Issues?
------------
-
-Need help? Ask on Stack Overflow with the tag 'railsapps.'
-
-Your application contains diagnostics in the README file. Please provide a copy of the README file when reporting any issues.
-
-If the application doesn't work as expected, please [report an issue](https://github.com/RailsApps/rails_apps_composer/issues)
-and include the diagnostics.
-
-Ruby on Rails
--------------
-
-This application requires:
-
-- Ruby 2.4.1
-- Rails 5.1.5
-
-Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.html).
-
-Getting Started
----------------
-
-Documentation and Support
--------------------------
-
-Issues
--------------
-
-Similar Projects
-----------------
-
-Contributing
+Instalar a linguagem ruby e o rails
 ------------
 
-Credits
--------
+1. gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+2. \curl -sSL https://get.rvm.io | bash
+3. \curl -sSL https://get.rvm.io | bash -s stable --ruby
+4. \curl -sSL https://get.rvm.io | bash -s stable --rails
 
-License
--------
+Instalar o GIT
+------------
+
+sudo apt-get install git
+
+Clonar o código fonte
+------------
+
+git clone https://github.com/fabricioifc/EstudAluno.git
+
+Instalar o postgresql
+------------
+
+sudo apt-get install postgresql
+
+Baixar as GEMS
+------------
+
+bundle install
+
+Executar a aplicação
+------------
+
+rails s
