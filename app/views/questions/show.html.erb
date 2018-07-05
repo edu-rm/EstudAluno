@@ -15,5 +15,22 @@
   <%= @question.active %>
 </p>
 
+<div class="card">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Descrição</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @question.alternatives.each do |al| %>
+        <tr>
+          <td><%= al.descricao %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
 <%= link_to 'Editar', edit_question_path(@question) %> |
 <%= link_to 'Retornar', questions_path %>
