@@ -66244,3 +66244,388 @@ FOREIGN KEY ("question_id")
   [1m[35mSQL (27.1ms)[0m  [1m[32mINSERT INTO "questions" ("description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["description", "Primeira Questão com Alternativas"], ["user_id", 2], ["created_at", "2018-07-05 19:30:10.039915"], ["updated_at", "2018-07-05 19:30:10.039915"]]
   [1m[35mSQL (2.7ms)[0m  [1m[32mINSERT INTO "alternatives" ("question_id", "descricao", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["question_id", 9], ["descricao", "Primeira Alternativa"], ["created_at", "2018-07-05 19:30:10.071572"], ["updated_at", "2018-07-05 19:30:10.071572"]]
   [1m[35m (8.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (16.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(453610084149436305)[0m
+  [1m[35m (62.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAlternatives (20180705191507)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (514.1ms)[0m  [1m[35mCREATE TABLE "alternatives" ("id" bigserial primary key, "question_id" bigint NOT NULL, "descricao" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_2335129f4c"
+FOREIGN KEY ("question_id")
+  REFERENCES "questions" ("id")
+)[0m
+  [1m[35m (41.7ms)[0m  [1m[35mCREATE  INDEX  "index_alternatives_on_question_id" ON "alternatives"  ("question_id")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180705191507"]]
+  [1m[35m (32.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (23.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(453610084149436305)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(453610084149436305)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddCorretaToAlternative (20180706133621)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (212.2ms)[0m  [1m[35mALTER TABLE "alternatives" ADD "correta" boolean DEFAULT 'f'[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180706133621"]]
+  [1m[35m (21.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(453610084149436305)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-07-06 10:40:23 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (4978.9ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  [1m[36mUser Load (38.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_nav_links_for_auth.html.erb (71.0ms)
+  Rendered layouts/_navigation.html.erb (73.5ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 5575ms (Views: 5379.0ms | ActiveRecord: 50.6ms)
+
+
+Started GET "/questions" for 127.0.0.1 at 2018-07-06 10:40:30 -0300
+
+SyntaxError - syntax error, unexpected ')', expecting keyword_end
+cricao, :correta, :_destroy]))
+                              ^:
+  app/controllers/questions_controller.rb:74:in `'
+
+Started POST "/__better_errors/e56a95a9cbb39715/variables" for 127.0.0.1 at 2018-07-06 10:40:30 -0300
+Started GET "/questions" for 127.0.0.1 at 2018-07-06 10:40:43 -0300
+Processing by QuestionsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering questions/index.html.erb within layouts/application
+  [1m[36mQuestion Load (17.1ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/index.html.erb within layouts/application (21.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (0.7ms)
+  Rendered layouts/_navigation.html.erb (2.7ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 122ms (Views: 60.1ms | ActiveRecord: 23.6ms)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2018-07-06 10:40:45 -0300
+Processing by QuestionsController#new as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering questions/new.html.erb within layouts/application
+  Rendered questions/_form.html.erb (770.8ms)
+  Rendered questions/new.html.erb within layouts/application (772.2ms)
+Completed 500 Internal Server Error in 787ms (ActiveRecord: 3.1ms)
+
+
+
+NameError - undefined local variable or method `f' for #<#<Class:0x007f2f756f0ee0>:0x007f2f759b1418>:
+  app/views/questions/_form.html.erb:26:in `block in _app_views_questions__form_html_erb__1268658605473753436_69920906591300'
+  app/views/questions/_form.html.erb:1:in `_app_views_questions__form_html_erb__1268658605473753436_69920906591300'
+  app/views/questions/new.html.erb:4:in `_app_views_questions_new_html_erb___4460914148107211288_69920906645240'
+
+Started POST "/__better_errors/e2f1eb287fa4ecd2/variables" for 127.0.0.1 at 2018-07-06 10:40:46 -0300
+Started GET "/questions/new" for 127.0.0.1 at 2018-07-06 10:40:58 -0300
+Processing by QuestionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering questions/new.html.erb within layouts/application
+  Rendered questions/_form.html.erb (90.8ms)
+  Rendered questions/new.html.erb within layouts/application (92.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (0.8ms)
+  Rendered layouts/_navigation.html.erb (2.9ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 160ms (Views: 154.7ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2018-07-06 10:41:05 -0300
+Processing by QuestionsController#new as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering questions/new.html.erb within layouts/application
+  Rendered questions/_form.html.erb (2.2ms)
+  Rendered questions/new.html.erb within layouts/application (3.2ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (0.7ms)
+  Rendered layouts/_navigation.html.erb (2.7ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 69ms (Views: 64.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2018-07-06 10:43:03 -0300
+Processing by QuestionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering questions/new.html.erb within layouts/application
+  Rendered questions/_alternative_fields.html.erb (0.2ms)
+  Rendered questions/_form.html.erb (2.8ms)
+  Rendered questions/new.html.erb within layouts/application (3.7ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (0.6ms)
+  Rendered layouts/_navigation.html.erb (2.2ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 576ms (Views: 44.6ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2018-07-06 10:44:14 -0300
+Processing by QuestionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering questions/new.html.erb within layouts/application
+  Rendered questions/_alternative_fields.html.erb (2.6ms)
+  Rendered questions/_form.html.erb (6.3ms)
+  Rendered questions/new.html.erb within layouts/application (8.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (0.9ms)
+  Rendered layouts/_navigation.html.erb (3.2ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 82ms (Views: 74.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2018-07-06 10:44:37 -0300
+Processing by QuestionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering questions/new.html.erb within layouts/application
+  Rendered questions/_alternative_fields.html.erb (0.8ms)
+  Rendered questions/_form.html.erb (3.0ms)
+  Rendered questions/new.html.erb within layouts/application (3.8ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (0.8ms)
+  Rendered layouts/_navigation.html.erb (2.7ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 72ms (Views: 68.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2018-07-06 10:52:34 -0300
+Processing by QuestionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering questions/new.html.erb within layouts/application
+  Rendered questions/_alternative_fields.html.erb (0.8ms)
+  Rendered questions/_alternative_fields.html.erb (439.7ms)
+  Rendered questions/_form.html.erb (444.1ms)
+  Rendered questions/new.html.erb within layouts/application (444.8ms)
+Completed 500 Internal Server Error in 449ms (ActiveRecord: 0.3ms)
+
+
+
+NameError - undefined local variable or method `form' for #<#<Class:0x007f2f756454f0>:0x007f2f75c2bd88>
+Did you mean?  fork:
+  app/views/questions/_alternative_fields.html.erb:3:in `_app_views_questions__alternative_fields_html_erb__2589951286125462072_69920909879120'
+  app/views/questions/_form.html.erb:32:in `block in _app_views_questions__form_html_erb__1268658605473753436_69920908092440'
+  app/views/questions/_form.html.erb:1:in `_app_views_questions__form_html_erb__1268658605473753436_69920908092440'
+  app/views/questions/new.html.erb:4:in `_app_views_questions_new_html_erb___4460914148107211288_69920908002440'
+
+Started POST "/__better_errors/c8dda6ec07ea1cc1/variables" for 127.0.0.1 at 2018-07-06 10:52:35 -0300
+Started GET "/questions/new" for 127.0.0.1 at 2018-07-06 10:52:54 -0300
+Processing by QuestionsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering questions/new.html.erb within layouts/application
+  Rendered questions/_alternative_fields.html.erb (0.8ms)
+  Rendered questions/_form.html.erb (397.9ms)
+  Rendered questions/new.html.erb within layouts/application (399.0ms)
+Completed 500 Internal Server Error in 407ms (ActiveRecord: 0.7ms)
+
+
+
+NameError - undefined local variable or method `alternatives' for #<#<Class:0x007f2f756454f0>:0x007f2f7775c8f0>:
+  app/views/questions/_form.html.erb:32:in `block in _app_views_questions__form_html_erb__1268658605473753436_69920922154720'
+  app/views/questions/_form.html.erb:1:in `_app_views_questions__form_html_erb__1268658605473753436_69920922154720'
+  app/views/questions/new.html.erb:4:in `_app_views_questions_new_html_erb___4460914148107211288_69920922200420'
+
+Started POST "/__better_errors/4e97a71adbf83760/variables" for 127.0.0.1 at 2018-07-06 10:52:55 -0300
+Started GET "/questions/new" for 127.0.0.1 at 2018-07-06 10:53:11 -0300
+Processing by QuestionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering questions/new.html.erb within layouts/application
+  Rendered questions/_alternative_fields.html.erb (0.8ms)
+  Rendered questions/_form.html.erb (372.3ms)
+  Rendered questions/new.html.erb within layouts/application (373.4ms)
+Completed 500 Internal Server Error in 379ms (ActiveRecord: 0.3ms)
+
+
+
+NameError - undefined local variable or method `alternative' for #<#<Class:0x007f2f756454f0>:0x007f2f776f6b40>:
+  app/views/questions/_form.html.erb:32:in `block in _app_views_questions__form_html_erb__1268658605473753436_69920921954320'
+  app/views/questions/_form.html.erb:1:in `_app_views_questions__form_html_erb__1268658605473753436_69920921954320'
+  app/views/questions/new.html.erb:4:in `_app_views_questions_new_html_erb___4460914148107211288_69920921991820'
+
+Started POST "/__better_errors/abd7f526200b2a7e/variables" for 127.0.0.1 at 2018-07-06 10:53:12 -0300
+Started GET "/questions/new" for 127.0.0.1 at 2018-07-06 10:53:41 -0300
+Processing by QuestionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering questions/new.html.erb within layouts/application
+  Rendered questions/_alternative_fields.html.erb (0.9ms)
+  Rendered questions/_alternative_fields.html.erb (399.6ms)
+  Rendered questions/_form.html.erb (405.8ms)
+  Rendered questions/new.html.erb within layouts/application (406.6ms)
+Completed 500 Internal Server Error in 412ms (ActiveRecord: 0.4ms)
+
+
+
+NameError - undefined local variable or method `form' for #<#<Class:0x007f2f756454f0>:0x007f2f76fc7ab8>
+Did you mean?  fork:
+  app/views/questions/_alternative_fields.html.erb:3:in `_app_views_questions__alternative_fields_html_erb__2589951286125462072_69920918140580'
+  app/views/questions/_form.html.erb:32:in `block in _app_views_questions__form_html_erb__1268658605473753436_69920918204420'
+  app/views/questions/_form.html.erb:1:in `_app_views_questions__form_html_erb__1268658605473753436_69920918204420'
+  app/views/questions/new.html.erb:4:in `_app_views_questions_new_html_erb___4460914148107211288_69920918225520'
+
+Started POST "/__better_errors/1aca1c707052b943/variables" for 127.0.0.1 at 2018-07-06 10:53:42 -0300
+Started GET "/questions/new" for 127.0.0.1 at 2018-07-06 10:58:00 -0300
+Processing by QuestionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering questions/new.html.erb within layouts/application
+  Rendered questions/_alternative_fields.html.erb (1.2ms)
+  Rendered questions/_alternative_fields.html.erb (1.2ms)
+  Rendered questions/_form.html.erb (8.1ms)
+  Rendered questions/new.html.erb within layouts/application (9.2ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (0.8ms)
+  Rendered layouts/_navigation.html.erb (2.7ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 77ms (Views: 72.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2018-07-06 10:58:09 -0300
+Processing by QuestionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering questions/new.html.erb within layouts/application
+  Rendered questions/_alternative_fields.html.erb (1.2ms)
+  Rendered questions/_alternative_fields.html.erb (2.1ms)
+  Rendered questions/_form.html.erb (9.7ms)
+  Rendered questions/new.html.erb within layouts/application (10.7ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (0.8ms)
+  Rendered layouts/_navigation.html.erb (2.9ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 72ms (Views: 66.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2018-07-06 10:58:17 -0300
+Processing by QuestionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering questions/new.html.erb within layouts/application
+  Rendered questions/_alternative_fields.html.erb (1.1ms)
+  Rendered questions/_alternative_fields.html.erb (1.0ms)
+  Rendered questions/_form.html.erb (10.1ms)
+  Rendered questions/new.html.erb within layouts/application (11.2ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (1.0ms)
+  Rendered layouts/_navigation.html.erb (2.7ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 104ms (Views: 100.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2018-07-06 10:58:41 -0300
+Processing by QuestionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering questions/new.html.erb within layouts/application
+  Rendered questions/_alternative_fields.html.erb (0.9ms)
+  Rendered questions/_alternative_fields.html.erb (1.0ms)
+  Rendered questions/_form.html.erb (6.0ms)
+  Rendered questions/new.html.erb within layouts/application (7.9ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (0.8ms)
+  Rendered layouts/_navigation.html.erb (2.5ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 82ms (Views: 74.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2018-07-06 10:58:55 -0300
+Processing by QuestionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering questions/new.html.erb within layouts/application
+  Rendered questions/_alternative_fields.html.erb (1.7ms)
+  Rendered questions/_alternative_fields.html.erb (1.1ms)
+  Rendered questions/_form.html.erb (8.2ms)
+  Rendered questions/new.html.erb within layouts/application (11.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.9ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (0.8ms)
+  Rendered layouts/_navigation.html.erb (4.3ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 81ms (Views: 77.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2018-07-06 10:58:59 -0300
+Processing by QuestionsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering questions/new.html.erb within layouts/application
+  Rendered questions/_alternative_fields.html.erb (3.4ms)
+  Rendered questions/_alternative_fields.html.erb (2.2ms)
+  Rendered questions/_form.html.erb (9.9ms)
+  Rendered questions/new.html.erb within layouts/application (11.2ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (0.8ms)
+  Rendered layouts/_navigation.html.erb (2.8ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 113ms (Views: 105.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2018-07-06 10:59:09 -0300
+Processing by QuestionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering questions/new.html.erb within layouts/application
+  Rendered questions/_alternative_fields.html.erb (1.1ms)
+  Rendered questions/_alternative_fields.html.erb (3.1ms)
+  Rendered questions/_form.html.erb (8.8ms)
+  Rendered questions/new.html.erb within layouts/application (10.7ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (0.7ms)
+  Rendered layouts/_navigation.html.erb (4.2ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 89ms (Views: 84.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/questions/new" for 127.0.0.1 at 2018-07-06 10:59:31 -0300
+Processing by QuestionsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering questions/new.html.erb within layouts/application
+  Rendered questions/_alternative_fields.html.erb (0.9ms)
+  Rendered questions/_alternative_fields.html.erb (0.9ms)
+  Rendered questions/_form.html.erb (5.7ms)
+  Rendered questions/new.html.erb within layouts/application (6.9ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (0.9ms)
+  Rendered layouts/_navigation.html.erb (2.8ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+Completed 200 OK in 89ms (Views: 81.1ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/questions" for 127.0.0.1 at 2018-07-06 11:00:07 -0300
+Processing by QuestionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mFWWc8nXbC3w54vRRUzOPRLT6P16xwaqBadL1iltMKQjbUkTp3zM/PLaAQlsdxVBi3lTgCC9r6PtnnhEw+gyKA==", "question"=>{"description"=>"Primeira Questão", "active"=>"1", "alternatives_attributes"=>{"0"=>{"descricao"=>"A1", "correta"=>"0"}, "1530885572565"=>{"descricao"=>"A2", "correta"=>"1"}}}, "commit"=>"Create Question"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (55.0ms)[0m  [1m[32mINSERT INTO "questions" ("description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["description", "Primeira Questão"], ["user_id", 2], ["created_at", "2018-07-06 14:00:07.251433"], ["updated_at", "2018-07-06 14:00:07.251433"]]
+  [1m[35mSQL (8.3ms)[0m  [1m[32mINSERT INTO "alternatives" ("question_id", "descricao", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["question_id", 1], ["descricao", "A1"], ["created_at", "2018-07-06 14:00:07.308177"], ["updated_at", "2018-07-06 14:00:07.308177"]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "alternatives" ("question_id", "descricao", "created_at", "updated_at", "correta") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["question_id", 1], ["descricao", "A2"], ["created_at", "2018-07-06 14:00:07.317836"], ["updated_at", "2018-07-06 14:00:07.317836"], ["correta", "t"]]
+  [1m[35m (41.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/questions
+Completed 302 Found in 118ms (ActiveRecord: 105.3ms)
+
+
+Started GET "/questions" for 127.0.0.1 at 2018-07-06 11:00:07 -0300
+Processing by QuestionsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering questions/index.html.erb within layouts/application
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  Rendered questions/index.html.erb within layouts/application (25.6ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (0.6ms)
+  Rendered layouts/_navigation.html.erb (2.2ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 75ms (Views: 71.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/questions/1/edit" for 127.0.0.1 at 2018-07-06 11:00:09 -0300
+Processing by QuestionsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering questions/edit.html.erb within layouts/application
+  [1m[36mAlternative Load (0.3ms)[0m  [1m[34mSELECT "alternatives".* FROM "alternatives" WHERE "alternatives"."question_id" = $1[0m  [["question_id", 1]]
+  Rendered questions/_alternative_fields.html.erb (1.2ms)
+  Rendered questions/_alternative_fields.html.erb (0.8ms)
+  Rendered questions/_alternative_fields.html.erb (1.0ms)
+  Rendered questions/_form.html.erb (49.1ms)
+  Rendered questions/edit.html.erb within layouts/application (51.1ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (0.6ms)
+  Rendered layouts/_navigation.html.erb (2.3ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 164ms (Views: 105.1ms | ActiveRecord: 1.2ms)
+
+

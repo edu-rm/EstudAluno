@@ -24,6 +24,13 @@
 
   <div class="row">
     
+    <%= form.fields_for :alternatives do |alternative| %>
+      <%= render 'alternative_fields', f: alternative %>
+    <% end %>
+  </div>
+
+  <div class="links">
+    <%= link_to_add_association 'Adicionar Alternativa', form, :alternatives, class: 'btn btn-primary' %>
   </div>
 
   <div class="actions">
