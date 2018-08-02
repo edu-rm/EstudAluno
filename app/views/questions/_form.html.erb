@@ -1,5 +1,6 @@
 <%= form_with(model: question, local: true) do |form| %>
   <% if question.errors.any? %>
+
     <div id="error_explanation">
       <h2><%= pluralize(question.errors.count, "error") %> prohibited this question from being saved:</h2>
 
@@ -11,29 +12,35 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :question_description %>
+    <br>
+
+    <div class="jumbotron jumbotron-fluid p-md-5 bg-lightgreen">
+  <div class="container">
+  <div class="form-group mx-auto">
+    <%= form.label :description, 'Questão', class: 'form-control', style:'font-size: 24px' %>
+    <%= form.text_area :description, id: :question_description, placeholder: 'Descrição', class: 'form-control'%>
   </div>
+</div>
 
-
-  <div class="field">
-    <%= form.label :active %>
+  <div class="form-group mx-auto">
+    <%= form.label :active, 'Ativa', style:'font-size: 18px' %>
     <%= form.check_box :active, id: :question_active %>
   </div>
-
-  <div class="row">
-    
-    <%= form.fields_for :alternatives do |alternative| %>
+</div>
+  <div class="row justify-content-md-center">
+      <%= form.fields_for  :alternatives do |alternative| %>
       <%= render 'alternative_fields', f: alternative %>
     <% end %>
   </div>
 
   <div class="links">
-    <%= link_to_add_association 'Adicionar Alternativa', form, :alternatives, class: 'btn btn-primary' %>
+    <%= link_to_add_association 'Adicionar Alternativa', form, :alternatives, class: 'btn btn-success' %>
   </div>
 
+  <br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Criar Questão', class: 'btn btn-warning' %>
   </div>
+
+
 <% end %>
