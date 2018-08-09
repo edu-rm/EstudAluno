@@ -26,10 +26,12 @@
   <div class="retangulo2">
     <% if !user_signed_in? %>
       <p class="ainda">Ainda não é um<br>Aluno?</p>
-      <%= link_to 'Cadastre-se', new_registration_path(User), class: 'btn btn-danger btn-lg offset-md-7' %>
+        <%= link_to 'Cadastre-se', new_registration_path(User), class: 'btn btn-danger btn-lg offset-md-7' %>
+
     <% end %>
 
-    <img src="assets\tech.png" alt="icone computador" class="tech"></img>
+    <%= image_tag 'tech.png', class: 'tech' %>
+
   </div>
 
   <a href="pages\about" class="chama_sobre">Sobre nós</a>

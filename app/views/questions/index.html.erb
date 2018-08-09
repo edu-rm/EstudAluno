@@ -1,7 +1,9 @@
 <div class="card">
   <h3 class="card-header clearfix">
     Questões
-    <span class='float-right'><%= link_to 'Nova Questão', new_question_path, class: "btn btn-primary btn-outline-success"%></span>
+    <span class='float-right'>
+      <%= link_to 'Nova Questão', new_question_path, class: "btn btn-primary btn-outline-success"%>
+    </span>
   </h3>
 
   <div class="card-body">
@@ -19,9 +21,9 @@
           <tr>
             <td><%= question.description %></td>
             <td><%= question.active? ? 'Ativa' : 'Inativa' %></td>
-            <td class="text-white"><%= link_to 'Mostrar', question %></td>
-            <td><%= link_to 'Editar', edit_question_path(question) %></td>
-            <td><%= link_to 'Excluir', question, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+            <td><%= link_to 'Mostrar', question, class: 'text-info' %></td>
+            <td><%= link_to 'Editar', edit_question_path(question), class: 'text-info' %></td>
+            <td><%= link_to 'Excluir', question, method: :delete, data: { confirm: 'Você tem certeza?' }, class: 'text-info' %></td>
           </tr>
         <% end %>
       </tbody>

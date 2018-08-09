@@ -40,3 +40,4 @@ end
 
 # Outras bibliotecas
 gem "cocoon"
+gem 'pry'

@@ -5,5 +5,5 @@ class Question < ApplicationRecord
 
   enum tipos: { matematica: 'Matemática', geografia: 'Geografia', historia: 'História' }
 
-  validates :description, :type, presence:true
+  validates :description, :area_conhecimento, presence:true
 end

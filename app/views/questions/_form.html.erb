@@ -13,34 +13,48 @@
           </ul>
         </div>
       <% end %>
-      
 
-      <div class="form-row mb-3">
-        <%= form.label :type, 'Tipo' %>
-        <%= form.select :type, Question::tipos.collect{ |a| [a.last, a.first] }, 
-            {prompt:'Tipo da Questão'},
-            {id: :question_type, class: 'form-control'} %>
-      </div>
 
-      <div class="form-row mb-2">
-        <%= form.label :description, 'Questão' %>
-        <%= form.text_area :description, id: :question_description, placeholder: 'Descrição', class: 'form-control', rows: '10'%>
-      </div>
+      <div class="row">
+        <div class="col-md-6">
 
-      <div class="form-group">
-          <div class="form-check">
-            <%= form.check_box :active, id: :question_active, class: 'form-check-input' %>
-            <%= form.label :active, 'Ativa', class: 'form-check-label' %>
+          <div class="form-row mb-3">
+            <%= form.label :area_conhecimento, 'Área de Conhecimento' %>
+            <%= form.select :area_conhecimento, Question::tipos.collect{ |a| [a.last, a.first] },
+                {prompt:'Tipo da Questão'},
+                {id: :question_area_conhecimento, class: 'form-control'} %>
           </div>
+
+          <div class="form-row mb-2">
+            <%= form.label :description, 'Questão' %>
+            <%= form.text_area :description, id: :question_description, placeholder: 'Descrição', class: 'form-control', rows: '6'%>
+          </div>
+
+          <div class="form-row mb-2">
+            <%= form.label :feedback, 'Feedback da Questão' %>
+            <%= form.text_area :feedback, id: :question_feedback, placeholder: true, class: 'form-control', rows: '6'%>
+          </div>
+
+          <div class="form-group">
+            <div class="form-check">
+              <%= form.check_box :active, id: :question_active, class: 'form-check-input' %>
+              <%= form.label :active, 'Ativa', class: 'form-check-label' %>
+            </div>
+          </div>
+
+          <%= form.submit 'Criar Questão', class: 'btn btn-warning' %>
+
         </div>
 
-      <div class="form-group">
-        <%= form.fields_for  :alternatives do |alternative| %>
-          <%= render 'alternative_fields', f: alternative %>
-          <%= link_to_add_association 'Adicionar Alternativa', form, :alternatives, class: 'btn btn-sm btn-success' %>
-        <% end %>
+        <div class="col-6">
+          <div class="form-group">
+            <%= form.fields_for :alternatives do |alternative| %>
+              <%= render 'alternative_fields', f: alternative %>
+            <% end %>
+            <%= link_to_add_association 'Adicionar Alternativa', form, :alternatives, class: 'btn btn-sm btn-success' %>
+          </div>
+        </div>
       </div>
-    <%= form.submit 'Criar Questão', class: 'btn btn-warning' %>
 
     <% end %>
   </div>

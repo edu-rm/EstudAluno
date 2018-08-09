@@ -26,6 +26,7 @@ class QuestionsController < ApplicationController
   # POST /questions
   # POST /questions.json
   def create
+    binding.pry
     @question = Question.new(question_params)
     @question.user = current_user
 
@@ -72,6 +73,6 @@ class QuestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:description, :user_id, :active, :type, alternatives_attributes: [:id, :descricao, :correta, :_destroy])
+      params.require(:question).permit(:description, :user_id, :active, :area_conhecimento, :feedback, alternatives_attributes: [:id, :descricao, :correta, :_destroy])
     end
 end
