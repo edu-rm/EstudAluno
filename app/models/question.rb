@@ -3,5 +3,7 @@ class Question < ApplicationRecord
   has_many :alternatives, dependent: :destroy
   accepts_nested_attributes_for :alternatives, reject_if: :all_blank, allow_destroy: true
 
-  validates :description, presence:true
+  enum tipos: { matematica: 'Matemática', geografia: 'Geografia', historia: 'História' }
+
+  validates :description, :type, presence:true
 end

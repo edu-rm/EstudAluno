@@ -1,31 +1,30 @@
+<div class="card">
+  <h3 class="card-header clearfix">
+    Questões
+    <span class='float-right'><%= link_to 'Nova Questão', new_question_path, class: "btn btn-primary btn-outline-success"%></span>
+  </h3>
 
+  <div class="card-body">
+    <table class="table table-sm table-striped table-success">
+      <thead>
+        <tr>
+          <th>Descrição</th>
+          <th>Ativo</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-<h1 class="text-center">Questões</h1>
-<br>
-
-<table class="table table-striped bg-success fonte">
-  <thead>
-    <tr>
-      <th>Descrição</th>
-      <th>Ativo</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @questions.each do |question| %>
-      <tr>
-        <td><%= question.description %></td>
-        <td><%= question.active %></td>
-        <td class="text-white"><%= link_to 'Mostrar', question %></td>
-        <td><%= link_to 'Editar', edit_question_path(question) %></td>
-        <td><%= link_to 'Excluir', question, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-<div class="text-center">
-  <%= link_to 'Nova Questão', new_question_path, class: "btn btn-primary btn-outline-success", style: "font-size: 20px;" %>
+      <tbody>
+        <% @questions.each do |question| %>
+          <tr>
+            <td><%= question.description %></td>
+            <td><%= question.active? ? 'Ativa' : 'Inativa' %></td>
+            <td class="text-white"><%= link_to 'Mostrar', question %></td>
+            <td><%= link_to 'Editar', edit_question_path(question) %></td>
+            <td><%= link_to 'Excluir', question, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
