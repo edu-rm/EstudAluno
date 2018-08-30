@@ -1,0 +1,35 @@
+<div class="card-header mb-4">
+  <ul class="nav nav-pills card-header-pills">
+    <% Question.tipos.each do |tipo| %>
+      <li class="nav-item">
+        <%= link_to area_conhecimento_questions_path(area: tipo[0]), class: 'nav-link' do %>
+          <%= tipo[1] %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <p class="lead"><%= @answer.question.description %></p>
+    <hr class="mt-2">
+    
+    <% @answer.question.alternatives.each do |a| %>
+      <% correto = a.id.eql?(@alternativa_correta.id) && @answer.alternative_id.eql?(a.id) %>
+      <div class="p-2 <%= a.id.eql?(@alternativa_correta.id) ? 'alert-success' : 'alert-dark' %>">
+        <%= check_box_tag :alternative_id, a.id, @answer.alternative_id.eql?(a.id), disabled:true  %>
+          <%= a.id %> <br />
+      </div>
+    <% end %>
+
+    <h5 class="mt-4 card-title"><span class='badge badge-secondary'>Feedback da Questão</span></h5>
+    <p class="card-text font-italic text-justify"><%= @answer.question.feedback %></p>
+  </div>
+  
+  <div class='card-footer'>
+    <%= link_to 'Voltar', root_path %>
+  </div>
+</div>
+
+<!-- <= link_to 'Edit', edit_answer_path(@answer) %> | -->

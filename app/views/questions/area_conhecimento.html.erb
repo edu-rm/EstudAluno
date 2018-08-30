@@ -1,0 +1,18 @@
+<div class="card">
+  <h3 class="card-header clearfix">
+    <%= params[:area] %>
+    <span class='float-right'>
+      <!-- <% link_to 'Nova Questão', new_question_path, class: "btn btn-primary btn-outline-success"%> -->
+    </span>
+  </h3>
+
+  <div class="card-body">
+    <% @questions.each do |question| %>
+      <div class="alert alert-light" role="alert">
+        <p><%= question.description %></p>
+        <span><%= link_to 'Responder', new_answer_path(question: question), class: 'btn btn-primary' %></span>
+      </div>
+      <hr />
+    <% end %>
+  </div>
+</div>

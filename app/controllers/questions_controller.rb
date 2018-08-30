@@ -65,6 +65,11 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def area_conhecimento
+    @questions = Question.where(area_conhecimento: params[:area])
+  end
+  
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_question

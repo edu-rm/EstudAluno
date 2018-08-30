@@ -21,7 +21,9 @@
   <%= image_tag 'icon-geografia.png', class: 'geo' %>
   <%= image_tag 'icon-historia.png', class: 'historia' %>
   <%= image_tag 'icon-literatura.png', class: 'literatura' %>
-  <%= image_tag 'icon-matematica.png', class: 'matematica' %>
+  <%= link_to area_conhecimento_questions_path(area: 'matematica') do %>
+    <%= image_tag 'icon-matematica.png', class: 'matematica' %>
+  <% end %>
 
   <div class="retangulo2">
     <% if !user_signed_in? %>
