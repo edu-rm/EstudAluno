@@ -24,12 +24,9 @@ font-size: 60px;
 }
 
 .logoinicio{
-  position: absolute;
-left: 900px;
-top: 0px;
 border-radius: 183.5px;
 width: 385px;
-height: 385px;
+height: auto;
 }
 
 .mensagem{
@@ -279,4 +276,12 @@ top: 2276px;
 
 .bg-blues{
   background-color:  rgba(88, 152, 199, 0.89);
+}
+
+.text-ff{
+  color: #ff5c5c;
+}
+
+.colorFFF952{
+  background-color: #FFF952;
 }
