@@ -16,7 +16,6 @@
     <hr class="mt-2">
     
     <% @answer.question.alternatives.each do |a| %>
-      <% correto = a.id.eql?(@alternativa_correta.id) && @answer.alternative_id.eql?(a.id) %>
       <div class="p-2 <%= a.id.eql?(@alternativa_correta.id) ? 'alert-success' : 'alert-dark' %>">
         <%= check_box_tag :alternative_id, a.id, @answer.alternative_id.eql?(a.id), disabled:true  %>
           <%= a.id %> <br />
