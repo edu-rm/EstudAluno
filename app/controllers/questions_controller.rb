@@ -26,7 +26,6 @@ class QuestionsController < ApplicationController
   # POST /questions
   # POST /questions.json
   def create
-    binding.pry
     @question = Question.new(question_params)
     @question.user = current_user
 
