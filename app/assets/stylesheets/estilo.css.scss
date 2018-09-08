@@ -64,214 +64,47 @@ color: #2F333A;
 }
 
 .mensagem2{
-  position: absolute;
-width: 828px;
-height: 171px;
-left: 306px;
-top: 890px;
-
 font-family: Sanchez;
-font-style: normal;
-font-weight: normal;
-line-height: normal;
 font-size: 64px;
-text-align: center;
-
 color: #2F333A;
 }
 
-.retangulo2{
-  position: absolute;
-width: 100%;
-height: 668px;
-left: 0px;
-top: 1599px;
-
-background: rgba(88, 152, 199, 0.89);
-}
-
 .direitos{
-position: absolute;
-width: 100%;
-height: 50px;
-left: 0px;
-top: 2370px;
-
-background: #C4C4C4;
+background-color: #C4C4C4;
 }
 
-.p{
-  font-style: normal;
-  font-weight: normal;
-  line-height: normal;
-  font-size: 30px;
-  text-align: center;
-}
-
-.bio{
-  position: absolute;
-width: 168px;
-height: 172px;
-left: 166px;
-top: 680px;
-}
-
-.filo{
-  position: absolute;
-width: 168px;
-height: 172px;
-left: 475px;
-top: 680px;
-}
-
-.fisica{
-  position: absolute;
-width: 168px;
-height: 172px;
-left: 797px;
-top: 680px;
-}
-
-.quimica{
-  position: absolute;
-width: 168px;
-height: 172px;
-left: 1106px;
-top: 680px;
-}
-
-.geo{
-  position: absolute;
-width: 168px;
-height: 172px;
-left: 166px;
-top: 1235px;
-}
-
-.historia{
-  position: absolute;
-width: 168px;
-height: 172px;
-left: 475px;
-top: 1235px;
-}
-
-.literatura{
-  position: absolute;
-width: 168px;
-height: 172px;
-left: 797px;
-top: 1235px;
-}
-
-.matematica{
-  position: absolute;
-width: 168px;
-height: 172px;
-left: 1106px;
-top: 1235px;
+.icone{
+  width: 160px;
 }
 .tech{
-  position: absolute;
   width: 398px;
-  height: 394px;
-  left: 135px;
-  top: 100px;
-
 }
 
 .ainda{
-  position: absolute;
-width: 515px;
-height: 108px;
-left: 672px;
-top: 140px;
-
 font-family: Marvel;
-font-style: normal;
-font-weight: normal;
-line-height: normal;
 font-size: 72px;
-text-align: center;
 }
-
-.chama_cadastro{
-  position: absolute;
-  width: 450px;
-  height: 108px;
-  left: 700px;
-  top: 420px;
-  color: #2F333A;
-  background-color: #a7bbce;
-  border-color: #a7bbce;
-  font-size: 60px;
-  border: 1px solid transparent;
-  border-radius: 1rem;
-}
-.chama_cadastro:hover {
-    color: #fcf2f2;
-    background-color: #EB5757;
-    border-color: #EB5757; }
-  .chama_cadastro:focus, .btn-primary.focus {
-    box-shadow: 0 0 0 0.2rem rgba(102, 102, 102, 0.5);
-  }
-  .chama_cadastro.disabled, .chama_cadastro:disabled {
-    color: #fff;
-    background-color: #EB5757;
-    border-color: #EB5757;
-  }
-  .chama_cadastro:not(:disabled):not(.disabled):active, .chama_cadastro:not(:disabled):not(.disabled).active, .show > .chama_cadastro.dropdown-toggle {
-    color: #fff;
-    background-color: #4d4d4d;
-    border-color: #464646;
-  }
-    .chama_cadastro:not(:disabled):not(.disabled):active:focus, .chama_cadastro:not(:disabled):not(.disabled).active:focus, .show > .chama_cadastro.dropdown-toggle:focus {
-      box-shadow: 0 0 0 0.2rem rgba(102, 102, 102, 0.5);
-  }
 
 .chama_sobre{
-position: absolute;
-width: 168px;
-height: 40px;
-left: 0px;
-top: 2302px;
-
 font-family: Sanchez;
-font-style: normal;
-font-weight: normal;
-line-height: normal;
 font-size: 30px;
-text-align: center;
 color: #2F333A;
 
 }
 .chama_sobre:hover {
-    color: #35b729;
+  font-family: Sanchez;
+  font-size: 30px;
+  color: #35b729;
 }
 
 .texto_apoio{
-position: absolute;
-width: 168px;
-height: 40px;
-left: 950px;
-top: 2302px;
-
 font-family: Sanchez;
-font-style: normal;
-font-weight: normal;
-line-height: normal;
 font-size: 30px;
-text-align: center;
 color: #2F333A;
 }
 
 .img_ifc{
-position: absolute;
 width: 241px;
-height: 86px;
-left: 1090px;
-top: 2276px;
-
 }
 
 .bg-blues{
@@ -284,4 +117,8 @@ top: 2276px;
 
 .colorFFF952{
   background-color: #FFF952;
+}
+
+.ciano{
+background-color: rgba(88, 152, 199, 0.89);
 }

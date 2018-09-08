@@ -1,46 +1,97 @@
-<div class="retangulo" style="background-color: #FFF952;">
-    <h1 style="font-size: 60px; font-family:Lato;">
-    <div class="off-md-2">
-      Ei, tá na hora<br> de estudar para o enem!</h1><br>
+<div class="row colorFFF952 rounded">
+
+  <div class="col-8">
+    <h1 class="display-4 mt-4", style="font-size: ">
+      Ei, tá na hora de estudar para o Enem.</h1>
+      <br>
+      <h4 style="font-family: serif; font-size: 30px;">Com a plataforma EstudAluno, interatividade e dinâmica não irão
+      faltar!<br><br> É completamente gratuito!</h4>
+
+  </div>
+
+  <div class="col-4">
+      <%= image_tag 'logo.png', class: 'logoinicio', style:'width:350px'%>
+  </div>
+
+</div>
+
+<br>
+<br>
+
+<center>
+  <div class="row">
+    <div class="col-md-3">
+      <%= image_tag 'icon-biologia.png', class: 'icone' %>
+    </div>
+    <div class="col-md-3">
+      <%= image_tag 'icon-filosofia.png', class: 'icone' %>
+    </div>
+    <div class="col-md-3">
+      <%= image_tag 'icon-fisica.png', class: 'icone' %>
+    </div>
+    <div class="col-md-3">
+      <%= image_tag 'icon-quimica.png', class: 'icone' %>
+    </div>
+  </div>
+
+  <br>
+  <br>
+
+  <h4 class="mensagem2">Conte com as mais diversas questões!</h4>
+
+  <br>
+  <br>
+
+  <div class="row">
+    <div class="col-md-3">
+      <%= image_tag 'icon-geografia.png', class: 'icone' %>
+    </div>
+    <div class="col-md-3">
+      <%= image_tag 'icon-historia.png', class: 'icone' %>
+    </div>
+    <div class="col-md-3">
+      <%= image_tag 'icon-literatura.png', class: 'icone' %>
+    </div>
+    <div class="col-md-3">
+      <%= link_to area_conhecimento_questions_path(area: 'matematica') do %>
+        <%= image_tag 'icon-matematica.png', class: 'icone' %>
+      <% end %>
     </div>
 
-    <%= image_tag 'logo.png', class:'logoinicio', alt:"EstudAluno" %>
-
   </div>
-  <h4 style="font-family: serif; font-size: 35px;">Com a plataforma EstudAluno, interatividade e dinâmica não irão
-  faltar!<br> É completamente gratuito!</h4>
+<center>
+
+<br>
+<br>
+
+<% if !user_signed_in? %>
+  <div class="row ciano">
+      <div class="col-4">
+        <%= image_tag 'tech.png', class: 'tech' %>
+      </div>
+
+      <div class="col-8">
+
+          <p class="ainda">Ainda não é um<br>Aluno?</p>
+            <%= link_to 'Cadastre-se', new_registration_path(User), class: 'btn btn-danger', style:'font-size: 40px' %>
 
 
-  <%= image_tag 'icon-biologia.png', class: 'bio' %>
-  <%= image_tag 'icon-filosofia.png', class: 'filo' %>
-  <%= image_tag 'icon-fisica.png', class: 'fisica' %>
-  <%= image_tag 'icon-quimica.png', class: 'quimica' %>
-
-  <h2 class="mensagem2">Conte com as mais diversas<br>questões do enem<br>e divirta-se estudando!</h2>
-
-  <%= image_tag 'icon-geografia.png', class: 'geo' %>
-  <%= image_tag 'icon-historia.png', class: 'historia' %>
-  <%= image_tag 'icon-literatura.png', class: 'literatura' %>
-  <%= link_to area_conhecimento_questions_path(area: 'matematica') do %>
-    <%= image_tag 'icon-matematica.png', class: 'matematica' %>
+      </div>
+    </div>
   <% end %>
 
-  <div class="retangulo2">
-    <% if !user_signed_in? %>
-      <p class="ainda">Ainda não é um<br>Aluno?</p>
-        <%= link_to 'Cadastre-se', new_registration_path(User), class: 'btn btn-danger btn-lg offset-md-7' %>
+<br>
+<br>
 
-    <% end %>
-
-    <%= image_tag 'tech.png', class: 'tech' %>
-
+<div class="row">
+  <div class="col-12">
+    <%= image_tag 'ifc.png', class:'img_ifc', alt:'Instituto Federal Catarinense Campus Fraiburgo' %>
   </div>
-
-  <a href="pages\about" class="chama_sobre">Sobre nós</a>
-  <p class="texto_apoio">Apoio:</p>
-  <img src="assets\ifc.png" alt="Instituto Federal Catarinense Campus Fraiburgo" class="img_ifc"></img>
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <div class="direitos">
-  <p class="p">© Equipe EstudAluno. Todos os direitos reservados.</p>
 </div>
+
+<br>
+<br>
+
+  <div class="fixed-bottom direitos">
+    <p>© Equipe EstudAluno. Todos os direitos reservados.</p>
+  </div>
