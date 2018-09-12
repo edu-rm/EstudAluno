@@ -19,7 +19,7 @@
     
     <% answer.question.alternatives.each do |a| %>
       <%= form.radio_button :alternative_id, a.id, checked: false %>
-        <%= a.id %> <br />
+        <%= a.descricao %> <br />
     <% end %>
     <div class='mt-4'>
       <%= form.submit 'Enviar', class: 'btn btn-lg btn-primary' %>
