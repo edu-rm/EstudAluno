@@ -17,10 +17,12 @@
     <p class="lead"><%= @answer.question.description %></p>
     <hr class="mt-2">
     
-    <% answer.question.alternatives.each do |a| %>
-      <%= form.radio_button :alternative_id, a.id, checked: false %>
-        <%= a.descricao %> <br />
-    <% end %>
+      <% answer.question.alternatives.each do |a| %>
+        <p>
+          <%= form.radio_button :alternative_id, a.id, checked: false%>
+          <%= a.descricao %>
+        </p>
+      <% end %>
     <div class='mt-4'>
       <%= form.submit 'Enviar', class: 'btn btn-lg btn-primary' %>
     </div>
