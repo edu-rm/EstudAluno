@@ -50,8 +50,8 @@
           <div class="form-group">
             <%= form.fields_for :alternatives do |alternative| %>
               <%= render 'alternatives_fields', f: alternative %>
-              <%= link_to_add_association 'Adicionar Alternativa', form, :alternatives, partial: 'alternatives_fields', class: 'btn btn-sm btn-success' %>
             <% end %>
+            <%= link_to_add_association 'Adicionar Alternativa', form, :alternatives, partial: 'alternatives_fields', class: 'btn btn-sm btn-success' %>
           </div>
         </div>
       </div>
