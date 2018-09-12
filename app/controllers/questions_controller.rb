@@ -16,11 +16,16 @@ class QuestionsController < ApplicationController
   # GET /questions/new
   def new
     @question = Question.new
-    @question.alternatives.build
+    5.times do 
+      @question.alternatives.build
+    end
   end
 
   # GET /questions/1/edit
   def edit
+    (5 - @question.alternatives.count).times do 
+      @question.alternatives.build
+    end
   end
 
   # POST /questions
