@@ -48,10 +48,14 @@
 
         <div class="col-6">
           <div class="form-group">
-            <%= form.fields_for :alternatives do |alternative| %>
-              <%= render 'alternatives_fields', f: alternative %>
-            <% end %>
-            <%= link_to_add_association 'Adicionar Alternativa', form, :alternatives, partial: 'alternatives_fields', class: 'btn btn-sm btn-success', force_non_association_create: true %>
+            <fieldset id="alternatives_fieldset">
+              <%= form.fields_for :alternatives do |alternative| %>
+                <%= render 'alternatives_fields', f: alternative %>
+              <% end %>
+            </fieldset>
+            <%= link_to_add_association 'Adicionar Alternativa', form, :alternatives, partial: 'alternatives_fields', class: 'btn btn-sm btn-success',
+                'data-association-insertion-node' => '#alternatives_fieldset',
+                'data-association-insertion-method' => 'append'%>
           </div>
         </div>
       </div>
