@@ -5,7 +5,7 @@
       <%= f.text_area :descricao, id: :alternative_descricao, placeholder: 'Alternativa', class: 'form-control' %>
     </div>
     <div class="col-md-12 d-flex align-items-center">
-        <%= radio_button_tag 'alternatives[correta]', f.object.id %>
+        <%= f.check_box :correta %>
         <%= f.label :correta %>
     </div>
   </div>

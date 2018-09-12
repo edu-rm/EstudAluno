@@ -31,12 +31,11 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       if @question.save
-        
-        correta = params[:alternatives][:correta]
-        if !correta.nil? && !correta.blank?
-          @question.alternatives.update(correta:false)
-          @question.alternatives.find(correta).update(correta:true)
-        end
+        # correta = params[:alternatives][:correta]
+        # if !correta.nil? && !correta.blank?
+          # @question.alternatives.update(correta:false)
+          # @question.alternatives.find(correta).update(correta:true)
+        # end
 
         format.html { redirect_to questions_path, notice: 'Questão salva com sucesso.' }
         format.json { render :show, status: :created, location: @question }
@@ -53,11 +52,11 @@ class QuestionsController < ApplicationController
     respond_to do |format|
       if @question.update(question_params)
         
-        correta = params[:alternatives][:correta]
-        if !correta.nil? && !correta.blank?
-          @question.alternatives.update(correta:false)
-          @question.alternatives.find(correta).update(correta:true)
-        end
+        # correta = params[:alternatives][:correta]
+        # if !correta.nil? && !correta.blank?
+        #   @question.alternatives.update(correta:false)
+        #   @question.alternatives.find(correta).update(correta:true)
+        # end
 
         format.html { redirect_to @question, notice: 'Questão atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @question }
