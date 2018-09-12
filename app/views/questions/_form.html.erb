@@ -49,7 +49,7 @@
         <div class="col-6">
           <div class="form-group">
             <%= form.fields_for :alternatives do |alternative| %>
-              <%= render 'alternative_fields', f: alternative %>
+              <%= render 'alternatives_fields', f: alternative %>
             <% end %>
             <%= link_to_add_association 'Adicionar Alternativa', form, :alternatives, class: 'btn btn-sm btn-success' %>
           </div>
