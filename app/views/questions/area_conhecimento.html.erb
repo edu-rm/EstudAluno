@@ -12,12 +12,7 @@
         <p style='white-space: pre-wrap;'><%= question.description %></p>
         <span><%= link_to 'Responder Questão', new_answer_path(question: question), class: 'btn btn-primary' %></span>
       </div>
-      <div class='alert alert-light '>
-        <dl class='dl-horizontal'>
-          <dd>Tentativas</dd>
-          <dt><%= current_user.answers.where(question: question).count %></p></dt>
-        </dl>
-      </div>
+        <!-- <= current_user.answers.where(question: question).count %> -->
       <hr />
     <% end %>
   </div>
