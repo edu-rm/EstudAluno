@@ -1,6 +1,6 @@
 <div class="card">
   <h3 class="card-header clearfix">
-    <%= params[:area] %>
+    <%= Question.tipos[params[:area]] %>
     <span class='float-right'>
       <!-- <% link_to 'Nova Questão', new_question_path, class: "btn btn-primary btn-outline-success"%> -->
     </span>
@@ -10,7 +10,13 @@
     <% @questions.each do |question| %>
       <div class="alert alert-light" role="alert">
         <p style='white-space: pre-wrap;'><%= question.description %></p>
-        <span><%= link_to 'Responder', new_answer_path(question: question), class: 'btn btn-primary' %></span>
+        <span><%= link_to 'Responder Questão', new_answer_path(question: question), class: 'btn btn-primary' %></span>
+      </div>
+      <div class='alert alert-light '>
+        <dl class='dl-horizontal'>
+          <dd>Tentativas</dd>
+          <dt><%= current_user.answers.where(question: question).count %></p></dt>
+        </dl>
       </div>
       <hr />
     <% end %>
