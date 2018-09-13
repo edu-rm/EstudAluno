@@ -41,3 +41,4 @@ end
 # Outras bibliotecas
 gem "cocoon"
 gem 'pry'
+gem 'rails_12factor', group: :production
