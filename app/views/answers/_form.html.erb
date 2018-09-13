@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="jumbotron" style='padding: 2rem;'>
-    <pre class=""><%= @answer.question.description %></pre>
+    <span style='white-space: pre-wrap;'><%= @answer.question.description %></span>
     <hr class="mt-2">
     
       <% answer.question.alternatives.each do |a| %>

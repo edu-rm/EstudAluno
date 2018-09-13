@@ -9,7 +9,7 @@
   <div class="card-body">
     <% @questions.each do |question| %>
       <div class="alert alert-light" role="alert">
-        <p><%= question.description %></p>
+        <p style='white-space: pre-wrap;'><%= question.description %></p>
         <span><%= link_to 'Responder', new_answer_path(question: question), class: 'btn btn-primary' %></span>
       </div>
       <hr />
