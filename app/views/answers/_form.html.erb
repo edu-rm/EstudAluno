@@ -3,18 +3,16 @@
   
   <% if answer.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(answer.errors.count, "error") %> prohibited this answer from being saved:</h2>
-
       <ul>
-      <% answer.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% answer.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
   <div class="jumbotron" style='padding: 2rem;'>
-    <p class="lead"><%= @answer.question.description %></p>
+    <pre class=""><%= @answer.question.description %></pre>
     <hr class="mt-2">
     
       <% answer.question.alternatives.each do |a| %>
@@ -24,7 +22,7 @@
         </p>
       <% end %>
     <div class='mt-4'>
-      <%= form.submit 'Enviar', class: 'btn btn-lg btn-primary' %>
+      <%= form.submit 'Responder', class: 'btn btn-lg btn-primary' %>
     </div>
   </div>
 
