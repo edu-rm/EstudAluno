@@ -1,6 +1,47 @@
 <div class="card">
   <h3 class="card-header clearfix">
-    <%= Question.tipos[params[:area]] %>
+    <div class="row">
+      <div class="col-md-8">
+        <h1 class="display-4 mt-4"><%= Question.tipos[params[:area]] %></h1>
+      </div>
+      <div class="col-md-4">
+        <% area = params[:area]
+        if  area == "portugues" %>
+          <%= image_tag 'portugues.png', alt:'portugues', style: "width: 180px" %>
+        <%end%>
+        <% if  area == "matematica" %>
+          <%= image_tag 'matematica.png', alt:'matematica', style: "width: 180px" %>
+        <%end%>
+        <% if  area == "fisica" %>
+          <%= image_tag 'fisica.png', alt:'fisica', style: "width: 180px" %>
+        <%end%>
+        <% if  area == "quimica" %>
+          <%= image_tag 'quimica.png', alt:'quimica', style: "width: 180px" %>
+        <%end%>
+        <% if  area == "historia" %>
+          <%= image_tag 'historia.png', alt:'historia', style: "width: 180px" %>
+        <%end%>
+        <% if  area == "geografia" %>
+          <%= image_tag 'geografia.png', alt:'geografia', style: "width: 180px" %>
+        <%end%>
+        <% if  area == "sociologia" %>
+          <%= image_tag 'sociologia.png', alt:'sociologia', style: "width: 180px" %>
+        <%end%>
+        <% if  area == "filosofia" %>
+          <%= image_tag 'filosofia.png', alt:'filosofia', style: "width: 180px" %>
+        <%end%>
+        <% if  area == "biologia" %>
+          <%= image_tag 'biologia.png', alt:'biologia', style: "width: 180px" %>
+        <%end%>
+        <% if  area == "ingles" %>
+          <%= image_tag 'ingles.png', alt:'ingles', style: "width: 180px" %>
+        <%end%>
+        <% if  area == "espanhol" %>
+          <%= image_tag 'espanhol.png', alt:'espanhol', style: "width: 180px" %>  
+        <%end%>
+      </div>
+    </div>
+
     <span class='float-right'>
       <!-- <% link_to 'Nova Questão', new_question_path, class: "btn btn-primary btn-outline-success"%> -->
     </span>

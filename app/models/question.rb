@@ -4,15 +4,18 @@ class Question < ApplicationRecord
   has_many :answer
   accepts_nested_attributes_for :alternatives, reject_if: :all_blank, allow_destroy: true
 
-  enum tipos: { 
-    matematica: 'Matemática', 
-    geografia: 'Geografia', 
+  enum tipos: {
+    matematica: 'Matemática',
+    geografia: 'Geografia',
     historia: 'História',
     biologia: 'Biologia',
-    filosogia: 'Filosofia',
+    filosofia: 'Filosofia',
     fisica: 'Física',
     quimica: 'Química',
-    literatura: 'Literatura',
+    portugues: 'Português',
+    espanhol: 'Espanhol',
+    sociologia: 'Sociologia',
+    ingles: 'Inglês',
   }
 
   validates :description, :area_conhecimento, presence:true

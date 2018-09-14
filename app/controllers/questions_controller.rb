@@ -16,14 +16,14 @@ class QuestionsController < ApplicationController
   # GET /questions/new
   def new
     @question = Question.new
-    5.times do 
+    5.times do
       @question.alternatives.build
     end
   end
 
   # GET /questions/1/edit
   def edit
-    (5 - @question.alternatives.count).times do 
+    (5 - @question.alternatives.count).times do
       @question.alternatives.build
     end
   end
@@ -56,7 +56,7 @@ class QuestionsController < ApplicationController
   def update
     respond_to do |format|
       if @question.update(question_params)
-        
+
         # correta = params[:alternatives][:correta]
         # if !correta.nil? && !correta.blank?
         #   @question.alternatives.update(correta:false)
@@ -75,6 +75,7 @@ class QuestionsController < ApplicationController
   # DELETE /questions/1
   # DELETE /questions/1.json
   def destroy
+    @question = Question.find(params[:id])
     @question.destroy
     respond_to do |format|
       format.html { redirect_to questions_url, notice: 'Questão excluída com sucesso.' }
@@ -85,7 +86,7 @@ class QuestionsController < ApplicationController
   def area_conhecimento
     @questions = Question.where(area_conhecimento: params[:area])
   end
-  
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

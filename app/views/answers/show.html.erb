@@ -14,7 +14,7 @@
   <div class="card-body">
     <p class="lead"><%= @answer.question.description %></p>
     <hr class="mt-2">
-    
+
     <% @answer.question.alternatives.each do |a| %>
       <div class="p-2 <%= a.id.eql?(@alternativa_correta.id) ? 'alert-success' : 'alert-dark' %>">
         <%= check_box_tag :alternative_id, a.id, @answer.alternative_id.eql?(a.id), disabled:true  %>
@@ -25,9 +25,9 @@
     <h5 class="mt-4 card-title"><span class='badge badge-secondary'>Feedback da Questão</span></h5>
     <p class="card-text font-italic text-justify"><%= @answer.question.feedback %></p>
   </div>
-  
+
   <div class='card-footer'>
-    <%= link_to 'Voltar', root_path %>
+    <%= link_to 'Voltar', page_path('principal') %>
   </div>
 </div>
 

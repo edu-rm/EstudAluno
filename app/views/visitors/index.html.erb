@@ -1,7 +1,7 @@
 <div class="row colorFFF952 rounded">
 
   <div class="col-8">
-    <h1 class="display-4 mt-4", style="font-size: ">
+    <h1 class="display-4 mt-4">
       Ei, tá na hora de estudar para o Enem.</h1>
       <br>
       <h4 style="font-family: serif; font-size: 30px;">Com a plataforma EstudAluno, interatividade e dinâmica não irão
@@ -14,28 +14,21 @@
   </div>
 
 </div>
-
-
+<br>
+<br>
+<center>
   <div class="row">
     <div class="col-md-3">
-      <%= link_to area_conhecimento_questions_path(area: 'biologia') do %>
         <%= image_tag 'icon-biologia.png', class: 'icone' %>
-      <% end %>
     </div>
     <div class="col-md-3">
-      <%= link_to area_conhecimento_questions_path(area: 'filosofia') do %>
         <%= image_tag 'icon-filosofia.png', class: 'icone' %>
-      <% end %>
     </div>
     <div class="col-md-3">
-      <%= link_to area_conhecimento_questions_path(area: 'fisica') do %>
         <%= image_tag 'icon-fisica.png', class: 'icone' %>
-      <% end %>
     </div>
     <div class="col-md-3">
-      <%= link_to area_conhecimento_questions_path(area: 'quimica') do %>
         <%= image_tag 'icon-quimica.png', class: 'icone' %>
-      <% end %>
     </div>
   </div>
 
@@ -49,29 +42,23 @@
 
   <div class="row">
     <div class="col-md-3">
-      <%= link_to area_conhecimento_questions_path(area: 'geografia') do %>
         <%= image_tag 'icon-geografia.png', class: 'icone' %>
-      <% end %>
     </div>
     <div class="col-md-3">
-      <%= link_to area_conhecimento_questions_path(area: 'historia') do %>
         <%= image_tag 'icon-historia.png', class: 'icone' %>
-      <% end %>
     </div>
     <div class="col-md-3">
-      <%= link_to area_conhecimento_questions_path(area: 'literatura') do %>
         <%= image_tag 'icon-literatura.png', class: 'icone' %>
-      <% end %>
     </div>
     <div class="col-md-3">
-      <%= link_to area_conhecimento_questions_path(area: 'matematica') do %>
         <%= image_tag 'icon-matematica.png', class: 'icone' %>
-      <% end %>
     </div>
 
   </div>
-
+<br>
+<br>
 <% if !user_signed_in? %>
+
   <div class="row ciano">
       <div class="col-4">
         <%= image_tag 'tech.png', class: 'tech' %>
@@ -102,3 +89,4 @@
 <div class="fixed-bottom direitos">
   <p>© Equipe EstudAluno. Todos os direitos reservados.</p>
 </div>
+</center>
