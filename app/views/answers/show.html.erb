@@ -16,7 +16,7 @@
     <hr class="mt-2">
 
     <% @answer.question.alternatives.each do |a| %>
-      <div class="p-2 <%= a.id.eql?(@alternativa_correta.id) ? 'alert-success' : 'alert-dark' %>">
+      <div class="p-2 <%= a.id.eql?(@alternativa_correta.id) ? 'alert verde' : 'alert vermelho' %>">
         <%= check_box_tag :alternative_id, a.id, @answer.alternative_id.eql?(a.id), disabled:true  %>
           <%= a.descricao %> <br />
       </div>
